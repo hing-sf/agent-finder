@@ -6,14 +6,14 @@
   <main>
     <%= form_for AgentSearch.new do |f| %>
       <fieldset>
-        <h3>Are you buying or selling?</h3>
+        <h4>Are you buying or selling?</h4>
         <%= radio_button_tag(:txn_side, "buying")  %>
         <%= label_tag "Buying" %>
         <%= radio_button_tag(:txn_side, "selling") %>
         <%= label_tag "Selling" %>
       </fieldset>
       <fieldset>
-        <h3>What type of property?</h3>
+        <h4>What type of property?</h4>
         <%= radio_button_tag(:prop_type, "sfh") %>
         <%= label_tag "Sfh" %>
         <%= radio_button_tag(:prop_type, "condo") %>
@@ -26,7 +26,7 @@
         <%= label_tag "Land" %>
       </fieldset>
       <fieldset>
-        <h3>What price range?</h3>
+        <h4>What price range?</h4>
         <%= radio_button_tag(:price_range, "0to150k") %>
         <%= label_tag "$0 - $150k" %>
         <%= radio_button_tag(:price_range, "150kto300k") %>

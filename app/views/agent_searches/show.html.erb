@@ -1,10 +1,10 @@
 <section class="content">
   <header>
     <h1>Agent Results</h1>
+    <p> You searched for <%= @search.txn_side %> a <%= @search.prop_type %> at <%= @search.price_range.gsub("to", " to ").gsub("1mp", "1m p") %></p>
   </header>
 
   <main>
-    <p> You searched for <%= @search.txn_side %> a <%= @search.prop_type %> at <%= @search.price_range.gsub("to", " to ").gsub("1mp", "1m p") %></p>
     <%= render partial: "agent_list" %>
   </main>
 

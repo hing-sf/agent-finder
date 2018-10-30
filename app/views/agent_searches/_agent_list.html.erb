@@ -1,19 +1,101 @@
-<%- @agents.each do |agent| %>
-  <div class="agent" data-agent-id="<%= agent.id %>">
-    <div class="pi">
-      <div class="name"><%= agent.name %></div>
-      <div class="brokerage"><%= agent.brokerage %></div>
-    </div>
-    <div class="stats">
-      <div class="side-stats">
-        <b>Side:</b> Buyers: <%= agent.agent_stat.buyers %> Sellers: <%= agent.agent_stat.sellers %>
-      </div>
-      <div class="type-stats">
-        <b>Type:</b> SFH: <%= agent.agent_stat.sfh %> Condo: <%= agent.agent_stat.condo %> Townhome: <%= agent.agent_stat.townhome %> Mobile: <%= agent.agent_stat.mobile %> Land: <%= agent.agent_stat.land %>
-      </div>
-      <div class="price-stats">
-        <b>Price:</b> $0 - $150k: <%= agent.agent_stat.pr1 %> $150k - $300k: <%= agent.agent_stat.pr2 %> $300k - $500k: <%= agent.agent_stat.pr3 %> $500k - $750k: <%= agent.agent_stat.pr4 %> $750k - $1m: <%= agent.agent_stat.pr5 %> $1m+: <%= agent.agent_stat.pr6 %>
+<div class="wrapper">
+
+<%# Price filter Dropdown %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Filter Price <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="filter-price" data-target-range="0-150">Filter By 0 - 150:</a></li>
+          <li><a href="#" class="filter-price" data-target-range="150-300">Filter By 150-300:</a></li>
+          <li><a href="#" class="filter-price" data-target-range="300-500">Filter By 300-500:</a></li>
+          <li><a href="#" class="filter-price" data-target-range="500-750">Filter By 500-750:</a></li>
+          <li><a href="#" class="filter-price" data-target-range="750-1000">Filter By 750-1000:</a></li>
+          <li><a href="#" class="filter-price" data-target-range="1001">Filter By million+</a></li>
+        </ul>
       </div>
     </div>
   </div>
-<% end %>
+  <%- @agents.each do |agent| %>
+  <div class="row agent" data-agent-id="<%= agent.id %>">
+    <div class="col-xs-12">
+      <div class="pi">
+        <div class="agent-details">
+          <h4 class="name">
+            <%= agent.name %>
+          </h4>
+          <h5 class="gray brokerage">
+            <%= agent.brokerage %> <label> Real Estate Company</label>
+          </h5>
+        </div>
+        <div class="agent-thumbnail">
+          <img class="img-circle" src="" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12">
+      <div class="stats">
+        <div class="line-detail side-stats">
+          <div class="item">
+            <label>Buyers:</label>
+            <span>
+              <%= agent.agent_stat.buyers %></span>
+          </div>
+          <div class="item">
+            <label>Sellers:</label>
+            <span>
+              <%= agent.agent_stat.sellers %></span>
+          </div>
+        </div>
+
+        <div class="gray line-detail type-stats">
+          <b class="black">Type:</b>
+          <label id="sfh">SFH:</label>
+          <span class="count">
+            <%= agent.agent_stat.sfh %></span>
+          <label id="condo">Condo:</label>
+          <span class="count">
+            <%= agent.agent_stat.condo %></span>
+          <label id="townhome">Townhome:</label>
+          <span class="count">
+            <%= agent.agent_stat.townhome %></span>
+          <label id="mobile">Mobile:</label>
+          <span class="count">
+            <%= agent.agent_stat.mobile %></span>
+          <label id="land">Land:</label>
+          <span class="count">
+            <%= agent.agent_stat.land %></span>
+        </div>
+
+        <div class="gray line-detail price-stats">
+          <b class="black">Price:</b>
+          <label class="price-range" data-range="0-150">$0 - $150k:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr1 %></span>
+          <label class="price-range" data-range="150-300">$150k - $300k:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr2 %></span>
+          <label class="price-range" data-range="300-500">$300k - $500k:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr3 %></span>
+          <label class="price-range" data-range="500-750">$500k - $750k:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr4 %></span>
+          <label class="price-range" data-range="750-1000">$750k - $1m:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr5 %></span>
+          <label class="price-range" data-range="1001">$1m+:</label>
+          <span class="count">
+            <%= agent.agent_stat.pr6 %></span>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <% end %>
+</div>
